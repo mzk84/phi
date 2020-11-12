@@ -57,6 +57,7 @@ _deps
 .vscode/*
 !.vscode/tasks.json
 !.vscode/launch.json
+!.vscode/settings.json
 *.code-workspace
 
 ### VisualStudioCode Patch ###
@@ -119,6 +120,7 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
+[Bb]uild/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
