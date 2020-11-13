@@ -5,9 +5,9 @@ project("cpp_world")
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable("cpp_world"
-"src/_includes.h"
+"../_mzk84_utils/_mzk84_utils.h"
+"../_mzk84_utils/_std_includes.h"
 "src/_main.cpp"
-"src/_mzk84_utils.h"
 "src/CandyCrush1D.h"
 "src/CandyCrush1D.cpp"
 "src/CandyCrush1DTest.h"
@@ -19,3 +19,5 @@ add_executable("cpp_world"
 "src/RecentItemsCacheTest.h"
 "src/VisitingTree.h"
 "src/VisitingTreeTest.h")
+
+target_include_directories("cpp_world" PRIVATE "../_mzk84_utils")
