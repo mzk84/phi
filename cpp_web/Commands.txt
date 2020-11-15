@@ -1,0 +1,32 @@
+# Build docker image
+docker build -t cpp_web_box .
+
+# Run
+docker run -v D:\Projects\Phi\cpp_web:/usr/cpp_web -ti cpp_web_box:latest bash
+
+# Run cmake from build folder
+cmake ..
+make
+
+# Run the app
+docker run -v D:\Projects\Phi\cpp_web:/usr/cpp_web -p 8080:8080 -e CROW_PORT=8080 -ti cpp_web_box:latest /usr/cpp_web/build/cpp_web
+
+# Copy contents of cpp_web folder on host to docker container (ID obtained from docker ps listing when container is running)
+docker run -ti cpp_web_box:latest bash
+docker cp . ffa79cacad3a:/usr/cpp_web
+docker commit ffa79cacad3a cpp_web_box:latest
+
+
+heroku login
+
+heroku container:login
+
+heroku create
+
+docker build -t heroku_cpp_web_box . 
+
+heroku container:push web -a rocky-garden-02617
+
+heroku container:release web -a rocky-garden-02617
+
+heroku open -a rocky-garden-02617
