@@ -83,7 +83,7 @@ int main(int argc, char* argv[]) {
   mongocxx::instance inst{};
   string mongoConnect = std::string(getenv("MONGODB_URI"));
   mongocxx::client conn{mongocxx::uri{mongoConnect}};
-  auto collection = conn["heroku_f2rk7vwn"]["contacts"];
+  auto collection = conn["cpp_web_db"]["contacts"];
 
   CROW_ROUTE(app, "/ws")
   .websocket()
