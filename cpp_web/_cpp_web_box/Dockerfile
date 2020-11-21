@@ -29,3 +29,5 @@ RUN git clone https://github.com/mongodb/mongo-cxx-driver.git \
 -DLIBBSON_DIR=/usr/lib/x86_64-linux-gnu \
 -DCMAKE_MODULE_PATH=/usr/src/mongo-cxx-driver-r3.6.1/cmake .. \
 && make EP_mnmlstc_core && make && make install && ldconfig /usr/local/lib
+
+WORKDIR /usr/cpp_web/build

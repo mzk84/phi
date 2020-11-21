@@ -1,5 +1,5 @@
 # Build docker image
-cd _cpp_web_box
+cd cd D:\Projects\Phi\cpp_web\_cpp_web_box
 docker build --rm --no-cache -t cpp_web_box .
 
 # Build the app
@@ -21,14 +21,17 @@ docker commit ffa79cacad3a cpp_web_box:latest
 # Run the app and go to localhost:8080 to check it is working
 docker run -p 8080:8080 -e PORT=8080 -e <MONGODB_URI_PRIVATE> -ti cpp_web_box:latest /usr/cpp_web/build/cpp_web
 
-# Deploy to heroku
-cd _cpp_web_box_heroku
-docker build --rm --no-cache -t cpp_web_box_heroku .
+# OR: Update the app code, build it and run it
+cd D:\Projects\Phi\cpp_web\cpp_web
+docker build --rm --no-cache -t cpp_web_box_d .
+docker run -p 8080:8080 -e PORT=8080 -e <MONGODB_URI_PRIVATE> -ti cpp_web_box_d:latest
 
+# Deploy to heroku
 heroku login
 heroku container:login
 heroku create // Don't call this if app is already created
 
-heroku container:push web -a rocky-garden-02617
-heroku container:release web -a rocky-garden-02617
-heroku open -a rocky-garden-02617
+cd D:\Projects\Phi\cpp_web\_cpp_web_box
+heroku container:push web -a dry-cove-03587
+heroku container:release web -a dry-cove-03587
+heroku open -a dry-cove-03587
