@@ -4,6 +4,8 @@ project("cpp_world")
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(GTest_DIR "~/vcpkg/installed/x64-linux/share/GTest")
+
 add_executable("cpp_world"
 "${CMAKE_CURRENT_SOURCE_DIR}/../_mzk84_commons/mzk84_commons.h"
 "src/_main.cpp"
