@@ -1,17 +1,34 @@
 #pragma once
 #include "CandyCrush1D.h"
 
-void CandyCrush1DTest() {
-    std::cout << "\n************************************************************\n";
-    std::cout << "Candy Crush 1D Test\n\n";
+#include "gtest/gtest.h"
 
-    std::string input1 = "abbcccbbbaaeefffre";
-    std::string input2 = "abbcaabadddaeeffft";
-    std::string input3 = "abcdef";
-    std::string input4 = "abbaabgggffefee";
+TEST(CandyCrush1DTest, Test1) {
+    std::string input = "abbcccbbbaaeefffre";
+    std::string expected = "eere";
+    ASSERT_EQ(expected, candyCrush1D((input)));
+}
 
-    std::cout << "Reducing input: " << input1 << ". Result is:" << CandyCrush1D(input1) << ".\n";
-    std::cout << "Reducing input: " << input2 << ". Result is:" << CandyCrush1D(input2) << ".\n";
-    std::cout << "Reducing input: " << input3 << ". Result is:" << CandyCrush1D(input3) << ".\n";
-    std::cout << "Reducing input: " << input4 << ". Result is:" << CandyCrush1D(input4) << ".\n";
+TEST(CandyCrush1DTest, Test2) {
+    std::string input = "abbcaabadddaeeffft";
+    std::string expected = "abbcaabaaeet";
+    ASSERT_EQ(expected, candyCrush1D((input)));
+}
+
+TEST(CandyCrush1DTest, Test3) {
+    std::string input = "abcdef";
+    std::string expected = "abcdef";
+    ASSERT_EQ(expected, candyCrush1D((input)));
+}
+
+TEST(CandyCrush1DTest, Test4) {
+    std::string input = "abbaabgggffefee";
+    std::string expected = "abbaabffefee";
+    ASSERT_EQ(expected, candyCrush1D((input)));
+}
+
+TEST(CandyCrush1DTest, Test5) {
+    std::string input;
+    std::string expected;
+    ASSERT_EQ(expected, candyCrush1D((input)));
 }

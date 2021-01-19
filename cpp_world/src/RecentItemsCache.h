@@ -8,7 +8,7 @@ private:
 
 public:
 	explicit CacheItem(std::string value) : m_value(std::move(value)) {}
-	const std::string& getValue() const { return m_value; }
+	[[nodiscard]] const std::string& getValue() const { return m_value; }
 };
 
 class RecentItemsCache {

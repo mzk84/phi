@@ -7,15 +7,14 @@
 class ListElemImpl : public ListElem {
 
 public:
-	ListElemImpl();
-	ListElemImpl(const ListElemImpl& other);
-	explicit ListElemImpl(const std::string& name);
+    explicit ListElemImpl(std::string name);
+    ListElemImpl(const ListElemImpl& other);
 	ListElemImpl& operator=(const ListElemImpl& other);
-	~ListElemImpl() override;
+	~ListElemImpl() override {};
 
 	void process(float* buf, size_t num) override;
 
-	const std::string& getName() const;
+	[[nodiscard]] const std::string& getName() const;
 
 private:
 	std::string m_name;

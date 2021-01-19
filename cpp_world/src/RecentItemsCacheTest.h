@@ -1,28 +1,58 @@
+#pragma once
 #include "RecentItemsCache.h"
 
-void RecentItemsCacheTest() {
-	std::cout << "\n************************************************************\n";
-	std::cout << "Recent Items Cache Test\n\n";
+#include "gtest/gtest.h"
 
-	RecentItemsCache cache(5);
-	cache.addItem("string 1");
-	cache.addItem("string 2");
-	cache.addItem("string 3");
+TEST(RecentItemsCacheTest, Test1) {
 
-	cache.printItems();
+    RecentItemsCache cache(5);
 
-	cache.addItem("string 2");
+    cache.addItem("string 1");
+    cache.addItem("string 2");
+    cache.addItem("string 3");
 
-	cache.printItems();
+    auto storedCache = cache.getItems();
+    auto iter = storedCache.begin();
 
-	cache.addItem("string 4");
-	cache.addItem("string 5");
-	cache.addItem("string 6");
+    ASSERT_EQ(3, cache.getItems().size());
+    ASSERT_EQ("string 3", (*iter++)->getValue());
+    ASSERT_EQ("string 2", (*iter++)->getValue());
+    ASSERT_EQ("string 1", (*iter++)->getValue());
 
-	cache.printItems();
+    cache.addItem("string 2");
 
-	cache.addItem("string 1");
-	cache.addItem("string 2");
+    storedCache = cache.getItems();
+    iter = storedCache.begin();
 
-	cache.printItems();
+    ASSERT_EQ(3, cache.getItems().size());
+    ASSERT_EQ("string 2", (*iter++)->getValue());
+    ASSERT_EQ("string 3", (*iter++)->getValue());
+    ASSERT_EQ("string 1", (*iter++)->getValue());
+
+    cache.addItem("string 4");
+    cache.addItem("string 5");
+    cache.addItem("string 6");
+
+    storedCache = cache.getItems();
+    iter = storedCache.begin();
+
+    ASSERT_EQ(5, cache.getItems().size());
+    ASSERT_EQ("string 6", (*iter++)->getValue());
+    ASSERT_EQ("string 5", (*iter++)->getValue());
+    ASSERT_EQ("string 4", (*iter++)->getValue());
+    ASSERT_EQ("string 2", (*iter++)->getValue());
+    ASSERT_EQ("string 3", (*iter++)->getValue());
+
+    cache.addItem("string 1");
+    cache.addItem("string 2");
+
+    storedCache = cache.getItems();
+    iter = storedCache.begin();
+
+    ASSERT_EQ(5, cache.getItems().size());
+    ASSERT_EQ("string 2", (*iter++)->getValue());
+    ASSERT_EQ("string 1", (*iter++)->getValue());
+    ASSERT_EQ("string 6", (*iter++)->getValue());
+    ASSERT_EQ("string 5", (*iter++)->getValue());
+    ASSERT_EQ("string 4", (*iter++)->getValue());
 }

@@ -3,22 +3,21 @@
 typedef struct {
 	char c;
 	int n;
-} charCounter;
+} CharCounter;
 
-const size_t CRUSH_LIMIT = 3;
-
-std::string CandyCrush1D(const std::string& input) {
-	std::stack<charCounter> stack;
+std::string candyCrush1D(const std::string& input) {
+    constexpr size_t crushLimit = 3;
+	std::stack<CharCounter> stack;
 
 	for (const auto& inputChar : input) {
 		if (!stack.empty() && stack.top().c != inputChar) {
-			if (stack.top().n >= CRUSH_LIMIT) {
+			if (stack.top().n >= crushLimit) {
 				stack.pop();
 			}
 		}
 
 		if (!stack.empty() && stack.top().c == inputChar) {
-			charCounter topObj = stack.top();
+            CharCounter topObj = stack.top();
 			topObj.n++;
 			stack.pop();
 			stack.push(topObj);
@@ -30,7 +29,7 @@ std::string CandyCrush1D(const std::string& input) {
 
 	std::string result;
 	while (!stack.empty()) {
-		if (stack.top().n < CRUSH_LIMIT) {
+		if (stack.top().n < crushLimit) {
 			for (int cnt = 1; cnt <= stack.top().n; cnt++) {
 				result.insert(0, 1, stack.top().c);
 			}

@@ -1,10 +1,23 @@
 #pragma once
 #include "MaxNumOfUniqueChars.h"
 
-void MaxNumOfUniqueCharsTest() {
-	std::cout << "\n************************************************************\n";
-	std::cout << "Maximum Number of Unique Chars Test\n\n";
+#include "gtest/gtest.h"
 
-	std::cout << "Example 1 (should be 0): " << MaxNumOfUniqueChars("abcdefgh") << "\n";
-	std::cout << "Example 2 (should be 5): " << MaxNumOfUniqueChars("abcffghijjcd") << "\n";
+TEST(MaxNumOfUniqueCharsTest, Test1) {
+    std::string input = "abcdefgh";
+    std::string expected = "0";
+    ASSERT_EQ(expected, maxNumOfUniqueChars((input)));
 }
+
+TEST(MaxNumOfUniqueCharsTest, Test2) {
+    std::string input = "abcffghijjcd";
+    std::string expected = "5";
+    ASSERT_EQ(expected, maxNumOfUniqueChars((input)));
+}
+
+TEST(MaxNumOfUniqueCharsTest, Test3) {
+    std::string input;
+    std::string expected = "0";
+    ASSERT_EQ(expected, maxNumOfUniqueChars((input)));
+}
+

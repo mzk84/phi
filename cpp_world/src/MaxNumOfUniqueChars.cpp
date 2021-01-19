@@ -1,19 +1,14 @@
 #include "MaxNumOfUniqueChars.h"
 
-size_t countUniqueChars(std::string input) {
-	size_t count = 0;
+size_t countUniqueChars(const std::string& input) {
 	std::unordered_set<char> uniqueChars;
-	std::pair<std::unordered_set<char>::iterator, bool> insertedRes;
-	for (size_t i = 0; i <= input.length(); ++i) {
-		insertedRes = uniqueChars.insert(input[i]);
-		if (insertedRes.second == true) {
-			count++;
-		}
+	for (const auto& c : input) {
+        uniqueChars.insert(c);
 	}
-	return count;
+	return uniqueChars.size();
 }
 
-std::string MaxNumOfUniqueChars(const std::string& input) {
+std::string maxNumOfUniqueChars(const std::string& input) {
 	size_t maxNum = 0;
 	std::unordered_map<char, size_t> hashMapCharToPos;
 	for (size_t i = 0; i < input.length(); ++i) {
