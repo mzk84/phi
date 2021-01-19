@@ -22,7 +22,7 @@ public:
 
 class ITreeNode {
 private:
-	ITreeNode* parent;
+    ITreeNode* parent;
 	std::list<ITreeNode*> children;
 
 	void setParent(ITreeNode* p) {
@@ -64,7 +64,7 @@ public:
 		data = d;
 	};
 	
-	const std::string& getData() const {
+	[[nodiscard]] const std::string& getData() const {
 		return data;
 	};
 };

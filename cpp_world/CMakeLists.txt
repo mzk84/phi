@@ -10,6 +10,8 @@ set(mkz84_commons_dir "${CMAKE_CURRENT_SOURCE_DIR}/../_mzk84_commons")
 
 find_package(GTest CONFIG REQUIRED)
 
+enable_testing()
+
 add_executable("cpp_world"
 "${mkz84_commons_dir}/mzk84_commons.h"
 "src/_main.cpp"
@@ -37,4 +39,8 @@ add_executable("cpp_world"
 
 target_include_directories("cpp_world" PRIVATE "${mkz84_commons_dir}")
 
+
+
 target_link_libraries("cpp_world" PRIVATE GTest::gmock GTest::gtest GTest::gmock_main GTest::gtest_main)
+
+add_test(UnitTests cpp_world COMMAND cpp_world)
