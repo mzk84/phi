@@ -39,8 +39,6 @@ add_executable("cpp_world"
 
 target_include_directories("cpp_world" PRIVATE "${mkz84_commons_dir}")
 
-
-
 target_link_libraries("cpp_world" PRIVATE GTest::gmock GTest::gtest GTest::gmock_main GTest::gtest_main)
 
 add_test(UnitTests cpp_world COMMAND cpp_world)
