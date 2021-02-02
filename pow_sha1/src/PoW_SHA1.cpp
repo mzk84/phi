@@ -1,5 +1,5 @@
 #include "PoW_SHA1.h"
-#include "_mzk84_utils.h"
+#include "mzk84_commons.h"
 
 // Proof of Work (PoW)
 // Find the suffix to the given string where SHA1 checksum of the entire string begins with number of zeroes equal to the given difficulty
@@ -48,7 +48,7 @@ void worker_1(const std::string& prefix, size_t difficulty, SHA_CTX* ctx, size_t
 			// Found solution!
 			std::string suffix_str(suffix, suffix + suffix_len);
 			std::string entire_str = prefix + suffix_str;
-			std::string hex_str = mzk84_utils::to_hex_string(md, SHA1_LEN);
+			std::string hex_str = mzk84::to_hex_string(md, SHA1_LEN);
 			{
 				std::lock_guard<std::mutex> lg(g_mutex);
 				g_found.store(true, std::memory_order_release);
@@ -103,7 +103,7 @@ void worker_2(const std::string& prefix, size_t difficulty, SHA_CTX* ctx, size_t
 			// Found solution!
 			std::string suffix_str(suffix, suffix + suffix_len);
 			std::string entire_str = prefix + suffix_str;
-			std::string hex_str = mzk84_utils::to_hex_string(md, SHA1_LEN);
+			std::string hex_str = mzk84::to_hex_string(md, SHA1_LEN);
 			{
 				std::lock_guard<std::mutex> lg(g_mutex);
 				g_found.store(true, std::memory_order_release);
@@ -158,7 +158,7 @@ void worker_3(const std::string& prefix, size_t difficulty, SHA_CTX* ctx, size_t
 			// Found solution!
 			std::string suffix_str(suffix, suffix + suffix_len);
 			std::string entire_str = prefix + suffix_str;
-			std::string hex_str = mzk84_utils::to_hex_string(md, SHA1_LEN);
+			std::string hex_str = mzk84::to_hex_string(md, SHA1_LEN);
 			{
 				std::lock_guard<std::mutex> lg(g_mutex);
 				g_found.store(true, std::memory_order_release);
@@ -230,7 +230,7 @@ std::string PoW_SHA1_Runner(const std::string& prefix, size_t difficulty, size_t
 	t = localtime(&tt);
 
 	std::cout << "\nFinished at " << std::put_time(t, "%T") << "\n";
-	std::cout << "\nElapsed time: " << mzk84_utils::format_duration(end - begin) << "\n";
+	std::cout << "\nElapsed time: " << mzk84::format_duration(end - begin) << "\n";
 
 	return g_suffix;
 }
