@@ -4,18 +4,15 @@ project("cpp_world")
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(GTest_DIR "~/vcpkg/installed/x64-linux/share/GTest")
-
 set(mkz84_commons_dir "${CMAKE_CURRENT_SOURCE_DIR}/../_mzk84_commons")
-
-find_package(GTest CONFIG REQUIRED)
-
-enable_testing()
 
 add_executable("cpp_world"
 "${mkz84_commons_dir}/mzk84_commons.h"
 "src/_main.cpp"
 "src/_std_includes.h"
+"src/BinarySearch.h"
+"src/BinarySearch.cpp"
+"src/BinarySearchTest.h"
 "src/CandyCrush1D.h"
 "src/CandyCrush1D.cpp"
 "src/CandyCrush1DTest.h"
@@ -36,6 +33,10 @@ add_executable("cpp_world"
 "src/RecentItemsCacheTest.h"
 "src/VisitingTree.h"
 "src/VisitingTreeTest.h")
+
+find_package(GTest CONFIG REQUIRED)
+
+enable_testing()
 
 target_include_directories("cpp_world" PRIVATE "${mkz84_commons_dir}")
 

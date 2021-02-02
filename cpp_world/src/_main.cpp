@@ -3,6 +3,7 @@
 #include "LargeFileSortingTest.h"
 #include "VisitingTreeTest.h"
 
+#include "BinarySearchTest.h"
 #include "CandyCrush1DTest.h"
 #include "ListFunctionsTest.h"
 #include "MaxNumOfUniqueCharsTest.h"

@@ -1,6 +1,6 @@
 #include "LargeFileSorting.h"
 
-
+// Merge sort for sorting the contents of large file
 // 1. Open the file
 // 2. Read N lines into the chunk by putting them in a multiset to be sorted
 // 3. Output chunk to the temp file
