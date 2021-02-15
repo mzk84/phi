@@ -7,6 +7,8 @@
 #include "CandyCrush1DTest.h"
 #include "ListFunctionsTest.h"
 #include "MaxNumOfUniqueCharsTest.h"
+#include "MyBinarySearchTreeTest.h"
+#include "MyListTest.h"
 #include "RecentItemsCacheTest.h"
 
 int main() {

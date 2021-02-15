@@ -28,11 +28,17 @@ add_executable("cpp_world"
 "src/MaxNumOfUniqueChars.h"
 "src/MaxNumOfUniqueChars.cpp"
 "src/MaxNumOfUniqueCharsTest.h"
+"src/MyBinarySearchTree.h"
+"src/MyBinarySearchTree.cpp"
+"src/MyBinarySearchTreeTest.h"
+"src/MyList.h"
+"src/MyList.cpp"
+"src/MyListTest.h"
 "src/RecentItemsCache.h"
 "src/RecentItemsCache.cpp"
 "src/RecentItemsCacheTest.h"
 "src/VisitingTree.h"
-"src/VisitingTreeTest.h")
+"src/VisitingTreeTest.h" "src/MyGraphStruct.h" "src/MyGraphStruct.cpp" "src/MyGraphStructTest.h")
 
 find_package(GTest CONFIG REQUIRED)
 
