@@ -1,2 +1,2 @@
-# phi
+# Phi
 My C++ development playground
