@@ -1,2 +1,2 @@
 # Phi
-My C++ development playground
+My C++ playground
