@@ -4,6 +4,8 @@ project("cpp_world")
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(GTest_DIR "~/vcpkg/packages/gtest_x64-linux/share/GTest/")
+
 set(mkz84_commons_dir "${CMAKE_CURRENT_SOURCE_DIR}/../_mzk84_commons")
 
 add_executable("cpp_world"
@@ -34,6 +36,9 @@ add_executable("cpp_world"
 "src/MyList.h"
 "src/MyList.cpp"
 "src/MyListTest.h"
+"src/PatternExpansion.h"
+"src/PatternExpansion.cpp"
+"src/PatternExpansionTest.h"
 "src/RecentItemsCache.h"
 "src/RecentItemsCache.cpp"
 "src/RecentItemsCacheTest.h"
